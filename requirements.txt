@@ -1,0 +1,16 @@
+torch
+torchvision
+opencv-python
+mediapipe
+numpy
+scipy
+pandas
+onnx
+onnxruntime
+Pillow
+scikit-learn
+matplotlib
+seaborn
+tqdm
+pyyaml
+albumentations

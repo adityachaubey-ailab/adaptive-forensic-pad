@@ -1,0 +1,41 @@
+capture:
+  device: 0
+  resolution: [640, 480]
+  fps: 30
+  face_detector: mediapipe
+
+dataset:
+  root: dataset/
+  metadata_file: dataset/metadata.csv
+  splits: [train, validation, test]
+
+model:
+  encoder: mobilenet_v3_small
+  texture_head: true
+  frequency_head: true
+  geometry_head: true
+  temporal: tcn
+  fusion: concat
+  forensic: tiny_transformer
+
+training:
+  epochs: 100
+  lr: 0.001
+  batch_size: 32
+  optimizer: adamw
+  scheduler: cosine
+  loss_weights:
+    pad: 1.0
+    forensic: 0.5
+  early_stopping: 10
+
+inference:
+  confidence_threshold_high: 0.85
+  confidence_threshold_low: 0.15
+  frame_skip: 4
+  early_exit: true
+  quantization: fp32
+
+benchmark:
+  metrics: [apcer, bpcer, acer, auc]
+  report_latency: true
