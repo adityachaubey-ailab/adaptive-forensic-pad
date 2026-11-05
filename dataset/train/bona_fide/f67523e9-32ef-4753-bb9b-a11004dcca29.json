@@ -1,0 +1,19 @@
+{
+  "sample_id": "f67523e9-32ef-4753-bb9b-a11004dcca29",
+  "device": "Device_0",
+  "camera": "Unknown",
+  "fps": 30,
+  "resolution": "640x480",
+  "total_frames": 415,
+  "duration_seconds": 13.8,
+  "lighting": "indoor",
+  "environment": "office",
+  "attack_type": "bona_fide",
+  "subject_id": "S001",
+  "timestamp": "2026-08-29T04:39:38Z",
+  "face_detected_frames": 415,
+  "avg_face_size": [
+    256,
+    288
+  ]
+}

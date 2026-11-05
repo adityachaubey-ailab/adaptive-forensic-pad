@@ -1,0 +1,19 @@
+{
+  "sample_id": "e60ae441-d8b8-4631-b806-13a90fea4469",
+  "device": "Device_0",
+  "camera": "Unknown",
+  "fps": 30,
+  "resolution": "640x480",
+  "total_frames": 592,
+  "duration_seconds": 19.75,
+  "lighting": "indoor",
+  "environment": "office",
+  "attack_type": "replay",
+  "subject_id": "S001",
+  "timestamp": "2026-08-29T04:40:59Z",
+  "face_detected_frames": 592,
+  "avg_face_size": [
+    256,
+    288
+  ]
+}
