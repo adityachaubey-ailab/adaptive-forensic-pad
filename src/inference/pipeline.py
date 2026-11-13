@@ -34,8 +34,8 @@ def compute_physical_evidence(frame: np.ndarray) -> Dict[str, float]:
     # Live skin in compressed video/webcam: variance ~15-500. Raw photo: 80-800.
     # Blurs / flat spoofs: < 8. Extreme high-freq dither: > 1200.
     lap_var = cv2.Laplacian(gray, cv2.CV_64F).var()
-    low_score = _sigmoid((lap_var - 40.0) * 0.08)
-    high_penalty = _sigmoid((lap_var - 1000.0) * 0.005)
+    low_score = _sigmoid((lap_var - 12.0) * 0.25)
+    high_penalty = _sigmoid((lap_var - 1200.0) * 0.005)
     texture_score = float(low_score * (1.0 - high_penalty * 0.6))
 
     # --- 2. Frequency Evidence (2D FFT High-Frequency Energy Ratio) ---
@@ -191,7 +191,7 @@ class InferencePipeline:
             
             # Configurable NN vs physical evidence fusion weight
             # When a trained model is loaded, NN features have 65% weight, physical evidence 35%
-            nn_w = self.config.get('nn_weight', 0.20)
+            nn_w = self.config.get('nn_weight', 0.65)
             ph_w = 1.0 - nn_w
             final_real_prob = nn_w * model_real + ph_w * phys_liveness
             final_spoof_prob = nn_w * model_spoof + ph_w * phys_spoof
